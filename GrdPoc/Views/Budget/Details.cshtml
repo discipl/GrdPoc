@@ -1,0 +1,93 @@
+﻿@model GrdPoc.Models.Entities.Budget
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Budget Details</h2>
+<hr />
+
+<p>
+    @Html.ActionLink("Back to List", "List", "Budget", null, new { @class = "btn btn-default" })
+</p>
+
+
+<div class="form-horizontal">
+    <hr />
+    @Html.HiddenFor(model => model.BudgetId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BudgetName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BudgetName, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BudgetIdCode, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BudgetIdCode, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BudgetInitialBalance, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BudgetInitialBalance, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BudgetBalance, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BudgetBalance, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BudgetOwnerId, "BudgetOwnerId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.BudgetOwner.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+        </div>
+    </div>
+
+</div>
+
+<hr />
+<h2>Budget transactions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Deposit
+        </th>
+        <th>
+            Deposit Source
+        </th>
+        <th>
+            Withdrawal
+        </th>
+        <th>
+           Withdrawal Source (eg. Invoice Number)
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.BudgetBalanceTransactions)
+    {
+        <tr>
+            <td>
+                @Html.Raw(item.BudgetBalanceDeposit)
+            </td>
+            <td>
+                @Html.Raw(item.BudgetBalanceDepositSource)
+            </td>
+            <td>
+                @Html.Raw(item.BudgetBalanceWithdrawal)
+            </td>
+            <td>
+                @Html.Raw(item.BudgetBalanceWithdrawalSource)
+            </td>
+        </tr>
+    }
+
+</table>

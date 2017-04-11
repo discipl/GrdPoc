@@ -1,0 +1,72 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.SmartContract>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@Html.Partial("../Shared/_BlockchainTabsView")
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BlockChainDeployAccount.AccountName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmartContractName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmartContractByteCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmartContractAbi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmartContractAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmartContractCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmartContractActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlockChainDeployAccount.AccountName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmartContractName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmartContractByteCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmartContractAbi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmartContractAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmartContractCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmartContractActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SmartContractId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SmartContractId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SmartContractId })
+        </td>
+    </tr>
+}
+
+</table>

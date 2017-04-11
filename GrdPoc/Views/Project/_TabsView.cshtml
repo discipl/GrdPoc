@@ -1,0 +1,31 @@
+﻿
+
+@if (Session["Persona"]?.ToString() == "Team Leader")
+{
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="@Html.IsSelected(action: "ListConfigure")"><a href="/Project/ListConfigure">Projects to Configure</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListToStart")"><a href="/Project/ListToStart">Projects to Start</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListExecution")"><a href="/Project/ListExecution">Projects in Execution</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListDelivered")"><a href="/Project/ListDelivered">Projects Delivered</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListClosed")"><a href="/Project/ListClosed">Closed Projects</a></li>
+    </ul>
+}
+
+@if (Session["Persona"]?.ToString() == "Project Leader")
+{
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="@Html.IsSelected(action: "ListDelivered")"><a href="/Project/ListDelivered">Projects to Confirm</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListClosed")"><a href="/Project/ListClosed">Closed Projects</a></li>
+    </ul>
+}
+
+@if (Session["Persona"]?.ToString() == "Project Resource")
+{
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="@Html.IsSelected(action: "ListExecution")"><a href="/Project/ListExecution">Projects I'm Executing</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListDelivered")"><a href="/Project/ListDelivered">Delivered Projects I Executed</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListClosed")"><a href="/Project/ListClosed">Closed Projects</a></li>
+    </ul>
+}
+
+

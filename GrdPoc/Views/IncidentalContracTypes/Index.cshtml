@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.IncidentalContracType>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@Html.Partial("../Shared/_ContractsTabsView")
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SmartContract.SmartContractName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracTypeTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracMvcController)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracTypeActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmartContract.SmartContractName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracTypeTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracMvcController)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracTypeActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IncidentalContracTypeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IncidentalContracTypeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IncidentalContracTypeId })
+        </td>
+    </tr>
+}
+
+</table>

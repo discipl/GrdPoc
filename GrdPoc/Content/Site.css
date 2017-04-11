@@ -1,0 +1,127 @@
+﻿
+.persona-icon {
+    color: #ffffff;
+    font-size: 30px !important;
+    height: 30px;
+    line-height: 60px !important;
+    margin: 0px 75px 0px;
+    width: 30px;
+}
+
+.nav > li > a {
+    color: #a7b1c2;
+    font-weight: 600;
+    padding: 5px 20px 5px 25px;
+}
+
+.nav > li > hr {
+    margin-top: 5px; 
+    margin-bottom: 0px; 
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.minimalize-styl-2 {
+    padding: 4px 12px;
+    margin: 5px 5px 5px 15px;
+    font-size: 14px;
+    float: left;
+}
+
+.colapse {
+  display: none !important;
+  width: 0px !important;
+}
+.full-width {
+    margin: 0 0 0 0px !important;
+}
+
+@media (min-width: 768px) {
+  #page-wrapper {
+    position: inherit;
+    margin: 0 0 0 180px;
+    min-height: 1200px;
+  }
+  .navbar-static-side {
+    z-index: 2001;
+    position: absolute;
+    width: 180px;
+  }
+  .navbar-top-links .dropdown-messages,
+  .navbar-top-links .dropdown-tasks,
+  .navbar-top-links .dropdown-alerts {
+    margin-left: auto;
+  }
+}
+
+.contract {
+	text-align: center;
+    margin:0 auto;
+}
+
+.contract a div {
+	height: 240px;
+	width: 240px;
+	text-align: center;
+    margin:0 auto;
+}
+.contract a {
+    color: rgb(103, 106, 108);
+}
+/*.contract a:hover {
+    color: black;
+}*/
+
+.contract-logo::before  {
+    background-image: url(/Content/Images/contract-gray.png);
+	height: 240px;
+	width: 240px;
+}
+
+.contract-logo {
+    background-image: url(/Content/Images/contract-gray.png);
+	height: 240px;
+	width: 240px;
+}
+
+.contract-logo:hover  {
+    background-image: url(/Content/Images/contract-green.png);
+	height: 240px;
+	width: 240px;
+}
+
+.btn-large {
+    padding: 30px 34px !important;
+}
+
+.editor-field textarea {
+    width : 100%;
+    height : 80px;
+}
+
+.texteditor-field  {
+    width : 100%;
+    height : 80px;
+    vertical-align: text-top !important;
+}
+
+.contract-items-box
+{
+    border: thin solid #C0C0C0; 
+    overflow-y: scroll;
+    width: 100%;
+    height: 115px;
+}
+
+
+.modal-listbox {
+    width: 240px;
+}
+
+.dashboard-items-box
+{
+    border: thin solid #C0C0C0; 
+    overflow-y: scroll;
+    width: 100%;
+    height: 200px;
+}

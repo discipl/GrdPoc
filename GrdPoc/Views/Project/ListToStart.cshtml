@@ -1,0 +1,109 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.ExecutionProject>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+@Html.Partial("_TabsView")
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectStatus)
+        </th>
+        <th>
+            Project Controller<br />(Project Leader)
+        </th>
+        <th>
+            Project Provider<br />(Team Lead or Budget Owner)
+        </th>
+        <th>
+           Project Resource
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectTimeframeStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectTimeframeEnd)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectSchedulledStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectSchedulledEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectActualStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectActualEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectDeliveranceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExecutionProjectDeliveranceConfirmation)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectController.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectProvider.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectResource.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectTimeframeStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectTimeframeEnd)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectSchedulledStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectSchedulledEnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectActualStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectActualEnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectDeliveranceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExecutionProjectDeliveranceConfirmation)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ExecutionProjectId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,158 @@
+﻿@model GrdPoc.Models.ViewModels.ServiceContractViewModel
+
+@{
+    ViewBag.Title = "Initiate a new Service Contract";
+}
+
+<h2>Initiate a new Service Contract</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.OwnerMunicipalEntityId)
+        @Html.HiddenFor(model => model.IncidentalContracOwnerName)
+        @Html.HiddenFor(model => model.IncidentalContracControllerName)
+        @Html.HiddenFor(model => model.ProviderMunicipalEntityId)
+        @Html.HiddenFor(model => model.IncidentalContracProviderName)
+        @Html.HiddenFor(model => model.IncidentalContracInvoiceNumber)
+        @Html.HiddenFor(model => model.ServiceIncidentalContractId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContractTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ContractTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ContractTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ServiceIncidentalContractPurpose, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 editor-field">
+                @Html.TextAreaFor(model => model.ServiceIncidentalContractPurpose, new { htmlAttributes = new { @class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.ServiceIncidentalContractPurpose, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ServiceIncidentalContractProfile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 editor-field">
+                @Html.TextAreaFor(model => model.ServiceIncidentalContractProfile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ServiceIncidentalContractProfile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IncidentalContracOwnerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("IncidentalContracOwnerId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IncidentalContracOwnerId, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.IncidentalContracControllerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("IncidentalContracControllerId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IncidentalContracControllerId, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.IncidentalContracProviderId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("IncidentalContracProviderId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IncidentalContracProviderId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IncidentalContracDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.IncidentalContracDuration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IncidentalContracDuration, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ServiceIncidentalContractHours, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ServiceIncidentalContractHours, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ServiceIncidentalContractHours, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.IncidentalContracStatus, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EnumDropDownListFor(model => model.IncidentalContracStatus, htmlAttributes: new { @class = "form-control", @readonly = "", @disabled = "" })
+                @Html.ValidationMessageFor(model => model.IncidentalContracStatus, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.IncidentalContracTypeId, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.DropDownList("IncidentalContracTypeId", null, htmlAttributes: new { @class = "form-control", @readonly = "", @disabled = "" })
+                @Html.ValidationMessageFor(model => model.IncidentalContracTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IncidentalContracTimeframeStart, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @*@Html.EditorFor(model => model.IncidentalContracTimeframeStart, new { htmlAttributes = new { @class = "form-control text-center", @type = "date" } })*@
+                @Html.EditorFor(model => model.IncidentalContracTimeframeStart, new { htmlAttributes = new { @class = "datepicker form-control text-center", @data_date_format = "yyyy/mm/dd" } }) @*, @data_date_format = "yyyy/mm/dd"*@
+                @Html.ValidationMessageFor(model => model.IncidentalContracTimeframeStart, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.IncidentalContracTimeframeEnd, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-2">
+                @*@Html.EditorFor(model => model.IncidentalContracTimeframeEnd, new { htmlAttributes = new { @class = "form-control text-center", @type = "date" } })*@
+                @Html.EditorFor(model => model.IncidentalContracTimeframeEnd, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd" } }) @*, @data_date_format = "mm/dd/yyyy"*@
+                @Html.ValidationMessageFor(model => model.IncidentalContracTimeframeEnd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 text-right">
+                <p><label class="control-label">Service(s)</label></p>
+                <a class="btn btn-default disabled" href="#"><i class="fa fa-plus"></i></a>
+            </div>
+            <div class="col-md-10">
+                <div id="contractItems" class="contract-items-box">
+                    @Html.EditorFor(model => model.ContractItems, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OwnerTermsAgreementDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.OwnerTermsAgreementDate, new { htmlAttributes = new { @class = "form-control ", @readonly = "" } })
+                @Html.ValidationMessageFor(model => model.OwnerTermsAgreementDate, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ProviderTermsAgreementDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ProviderTermsAgreementDate, new { htmlAttributes = new { @class = "form-control ", @readonly = "" } })
+                @Html.ValidationMessageFor(model => model.ProviderTermsAgreementDate, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ControllerDeliverenceConfirmationDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ControllerDeliverenceConfirmationDate, new { htmlAttributes = new { @class = "form-control ", @readonly = "" } })
+                @Html.ValidationMessageFor(model => model.ControllerDeliverenceConfirmationDate, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ProviderDeliverenceConfirmationDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.EditorFor(model => model.ProviderDeliverenceConfirmationDate, new { htmlAttributes = new { @class = "form-control ", @readonly = "" } })
+                @Html.ValidationMessageFor(model => model.ProviderDeliverenceConfirmationDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-10 col-md-2">
+                <input type="submit" value="Initiate Contract" class="btn btn-success" />
+            </div>
+        </div>
+        <hr />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Lists", "ListOpen", "Contract", new { @class = "btn btn-default" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $('.datepicker').datepicker();
+</script>
+}

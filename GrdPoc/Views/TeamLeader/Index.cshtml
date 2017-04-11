@@ -1,0 +1,156 @@
+﻿@model GrdPoc.Models.ViewModels.TeamLeadDashboardViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-center">
+        <h2>Initiate<br />New Contract</h2>
+        <p class="text-center"><a class="btn btn-default btn-large" href="/Contract"><i class="fa fa-plus"></i></a></p>
+    </div>
+    <div class="col-md-5 text-center">
+        <h2>Contracts in Negotiation</h2>
+        <div id="negotiationContractItems" class="dashboard-items-box">
+            <table class="table">
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Owner
+                    </th>
+                    <th>
+                        Provider
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model?.ContractsInNegotiationList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracType.IncidentalContracDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracOwnerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracProviderName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("View", "Edit", "Contract", new { id = item.IncidentalContractId }, null)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+    <div class="col-md-5 text-center">
+        <h2>Contracts for Approval</h2>
+        <div id="approvalContractItems" class="dashboard-items-box">
+            <table class="table">
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Owner
+                    </th>
+                    <th>
+                        Provider
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model?.ContractsInApprovalList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracType.IncidentalContracDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracOwnerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracProviderName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("View", "View", "Contract", new { id = item.IncidentalContractId }, null)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+@foreach (var item in Model.ProjectsList)
+{
+    <div class="col-sm-4 text-center ">
+        <div class="col-sm-12 label">
+            <div class="col-sm-6">
+                <small>
+                    @Html.Raw(item.ExecutionProjectTitle)
+                </small>
+                <h1 class="m-b-xs">
+                    @Html.Raw(item.ExecutionProjectStatus)
+                </h1>
+                <div class="row">
+                    <div>
+                        <p>Duration (days) : @Html.Raw(item.ExecutionProjectDuration)
+                        <p>
+                            Timeframe Start	: @Html.Raw(item.ExecutionProjectTimeframeStart)
+                        </p>
+                        <p>
+                            Timeframe End : @Html.Raw(item.ExecutionProjectTimeframeEnd)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="col-xs-12">
+                    <small class="stats-label">Project Controller (Project Leader)</small>
+                    <h4>@Html.Raw(item.ExecutionProjectController.UserName)</h4>
+                </div>
+
+                <div class="col-xs-12">
+                    <small class="stats-label">Project Provider <br />(Team Lead or Budget Owner)</small>
+                    <h4>@Html.Raw(item.ExecutionProjectProvider.UserName)</h4>
+                </div>
+                <div class="col-xs-12">
+                    <small class="stats-label">Project Resource</small>
+                    <h4>@Html.Raw(item.ExecutionProjectResource?.UserName)</h4>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                @Html.ActionLink("Go to Project", "Edit", "Project", new { id = item.ExecutionProjectId }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+}
+</div>
+<hr />
+<hr />

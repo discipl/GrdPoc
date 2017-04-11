@@ -1,0 +1,53 @@
+﻿@model GrdPoc.Models.Entities.BudgetBalanceTransaction
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+@Html.Partial("../Shared/_BudgetsTabsView")
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>BudgetBalanceTransaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalanceDeposit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalanceDeposit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalanceDepositSource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalanceDepositSource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalanceWithdrawal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalanceWithdrawal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalanceWithdrawalSource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalanceWithdrawalSource)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BudgetBalanceTransactionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,109 @@
+﻿@model GrdPoc.Models.Entities.IncidentalContractItem
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+@Html.Partial("../Shared/_ContractsTabsView")
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>IncidentalContractItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContract.ContractTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContract.ContractTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerBudget.BudgetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerBudget.BudgetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCodeExpense.ProductCodeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCodeExpense.ProductCodeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCodeIncome.ProductCodeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCodeIncome.ProductCodeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContractItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContractItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContractItemValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContractItemValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContractItemQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContractItemQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContractItemVat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContractItemVat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductIncomeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductIncomeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductExpenseCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductExpenseCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetCodeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetCodeId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IncidentalContractItemId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

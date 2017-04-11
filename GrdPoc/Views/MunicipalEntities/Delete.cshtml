@@ -1,0 +1,75 @@
+﻿@model GrdPoc.Models.Entities.MunicipalEntity
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+@Html.Partial("../Shared/_AccountsTabsView")
+
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MunicipalEntity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MunicipalEntityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MunicipalEntityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MunicipalEntityAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MunicipalEntityAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MunicipalEntityKvk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MunicipalEntityKvk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MunicipalEntityBtw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MunicipalEntityBtw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MunicipalEntityIban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MunicipalEntityIban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MunicipalEntityType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MunicipalEntityType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,249 @@
+﻿@model GrdPoc.Models.Entities.ExecutionProject
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Project Properties</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ExecutionProjectId)
+        @Html.HiddenFor(model => model.ExecutionProjectStatus)
+        @Html.HiddenFor(model => model.IncidentalContracId)
+
+
+
+
+@if (Model.ExecutionProjectStatus == ProjectStatus.Unconfigured)
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExecutionProjectTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ExecutionProjectTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
+else
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExecutionProjectTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ExecutionProjectTitle, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.IncidentalContracId, "IncidentalContracId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IncidentalContracId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IncidentalContracId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExecutionProjectStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.ExecutionProjectStatus, htmlAttributes: new { @class = "form-control", @readonly = "", @disabled = "" })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExecutionProjectControllerId, "ExecutionProjectControllerId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("ExecutionProjectControllerId", null, htmlAttributes: new { @class = "form-control", @readonly = "", @disabled = "" })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectControllerId, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ExecutionProjectProviderId, "ExecutionProjectProviderId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("ExecutionProjectProviderId", null, htmlAttributes: new { @class = "form-control", @readonly = "", @disabled = "" })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectProviderId, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ExecutionProjectDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.ExecutionProjectDuration, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectDuration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+        @if (Model.ExecutionProjectStatus == ProjectStatus.Unconfigured)
+        {
+            @Html.LabelFor(model => model.ExecutionProjectResourceId, "ExecutionProjectResourceId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("ExecutionProjectResourceId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectResourceId, "", new { @class = "text-danger" })
+            </div>
+        }
+        else
+        {
+            @Html.LabelFor(model => model.ExecutionProjectResourceId, "ExecutionProjectResourceId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("ExecutionProjectResourceId", null, htmlAttributes: new { @class = "form-control", @readonly = "", @disabled = "" })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectResourceId, "", new { @class = "text-danger" })
+            </div>
+        }
+            @Html.LabelFor(model => model.ExecutionProjectTimeframeStart, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.ExecutionProjectTimeframeStart, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectTimeframeStart, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ExecutionProjectTimeframeEnd, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.ExecutionProjectTimeframeEnd, new { htmlAttributes = new { @class = "form-control", @readonly = "", @disabled = "" } })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectTimeframeEnd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+@if (Model.ExecutionProjectStatus == ProjectStatus.Unconfigured)
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExecutionProjectSchedulledStart, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ExecutionProjectSchedulledStart, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectSchedulledStart, "", new { @class = "text-danger" })
+        </div>
+        @Html.LabelFor(model => model.ExecutionProjectSchedulledEnd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ExecutionProjectSchedulledEnd, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectSchedulledEnd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
+else
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExecutionProjectSchedulledStart, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ExecutionProjectSchedulledStart, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd", @readonly = "", @disabled = "" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectSchedulledStart, "", new { @class = "text-danger" })
+        </div>
+        @Html.LabelFor(model => model.ExecutionProjectSchedulledEnd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ExecutionProjectSchedulledEnd, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd", @readonly = "", @disabled = "" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectSchedulledEnd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+}
+    <div class="form-group">
+
+@if (Model.ExecutionProjectStatus == ProjectStatus.Configured)
+{
+        @Html.LabelFor(model => model.ExecutionProjectActualStart, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ExecutionProjectActualStart, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectActualStart, "", new { @class = "text-danger" })
+        </div>
+}
+else
+{
+        @Html.LabelFor(model => model.ExecutionProjectActualStart, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ExecutionProjectActualStart, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd", @readonly = "", @disabled = "" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectActualStart, "", new { @class = "text-danger" })
+        </div>
+}
+@if (Model.ExecutionProjectStatus == ProjectStatus.Executing)
+{
+        @Html.LabelFor(model => model.ExecutionProjectActualEnd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ExecutionProjectActualEnd, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectActualEnd, "", new { @class = "text-danger" })
+        </div>
+}
+else
+{
+        @Html.LabelFor(model => model.ExecutionProjectActualEnd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ExecutionProjectActualEnd, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd", @readonly = "", @disabled = "" } })
+            @Html.ValidationMessageFor(model => model.ExecutionProjectActualEnd, "", new { @class = "text-danger" })
+        </div>
+}
+    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExecutionProjectDeliveranceDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ExecutionProjectDeliveranceDate, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd", @readonly = "", @disabled = "" } })
+                @Html.ValidationMessageFor(model => model.ExecutionProjectDeliveranceDate, "", new { @class = "text-danger" })
+            </div>
+
+            @if (Model.ExecutionProjectStatus == ProjectStatus.Delivered)
+            {
+                @Html.LabelFor(model => model.ExecutionProjectDeliveranceConfirmation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.ExecutionProjectDeliveranceConfirmation, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd" } })
+                    @Html.ValidationMessageFor(model => model.ExecutionProjectDeliveranceConfirmation, "", new { @class = "text-danger" })
+                </div>
+            }
+            else
+            {
+                @Html.LabelFor(model => model.ExecutionProjectDeliveranceConfirmation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.ExecutionProjectDeliveranceConfirmation, new { htmlAttributes = new { @class = "form-control text-center datepicker", @data_date_format = "yyyy/mm/dd", @readonly = "", @disabled = "" } })
+                    @Html.ValidationMessageFor(model => model.ExecutionProjectDeliveranceConfirmation, "", new { @class = "text-danger" })
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2">
+                @Html.ActionLink("Back to List", "List", null , new { @class = "btn btn-default" })
+            </div>
+            <div class="col-md-2">
+                <a href='/Project/ViewService/@Html.Raw(Model.IncidentalContracId)' class='btn btn-info ls-modal'>View Contract</a>
+            </div>
+            <div class="col-md-offset-6 col-md-2">
+@if (Model.ExecutionProjectStatus == ProjectStatus.Delivered)
+{
+                <input type="submit" value="Final Confirmation" class="btn btn-success" />
+}
+else
+{
+                <input type="submit" value="Save" class="btn btn-success" />
+}
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+</div>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Contract</h4>
+            </div>
+            <div class="modal-body">
+                <p>Loading...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $('.datepicker').datepicker();
+
+        $('.ls-modal').on('click', function (e) {
+            e.preventDefault();
+            $('#myModal').modal('show').find('.modal-body').load($(this).attr('href'));
+        });
+
+    </script>
+}

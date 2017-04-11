@@ -1,0 +1,109 @@
+﻿@model GrdPoc.Models.Entities.IncidentalContract
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+@Html.Partial("../Shared/_ContractsTabsView")
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>IncidentalContract</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerMunicipalEntity.MunicipalEntityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerMunicipalEntity.MunicipalEntityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProviderMunicipalEntity.MunicipalEntityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProviderMunicipalEntity.MunicipalEntityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracOwnerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracOwnerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracOwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracOwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracControllerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracControllerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracControllerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracControllerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracProviderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracProviderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracProviderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracProviderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracInvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracInvoiceNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IncidentalContractId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

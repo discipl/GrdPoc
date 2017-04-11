@@ -1,0 +1,74 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.IncidentalContract>
+
+@{
+    ViewBag.Title = "List of Open Contracts";
+}
+
+
+<br />
+
+
+<p>
+    @Html.ActionLink("Initiate New Contract", "Index", "Contract", new { @class = "btn btn-default" })
+</p>
+
+@Html.Partial("_TabsView")
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            Owner Municipality
+        </th>
+        <th>
+            Provider Municipality
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+           Owner Name
+        </th>
+        <th>
+            Controller Name
+        </th>
+        <th>
+            Provider Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerMunicipalEntity.MunicipalEntityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProviderMunicipalEntity.MunicipalEntityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContractTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentalContracType.IncidentalContracDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentalContracOwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentalContracControllerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentalContracProviderName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditService", new { id = item.IncidentalContractId }) 
+            </td>
+        </tr>
+    }
+
+</table>

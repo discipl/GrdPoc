@@ -1,0 +1,196 @@
+﻿
+<nav class="navbar-default navbar-static-side @Html.IsCollapsed(element: "navbar", status: Session["Collapsed"]?.ToString())" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="">
+                <i class="fa fa-institution persona-icon"></i>
+            </li>
+            <li class="@Html.IsSelected(action: "Index")">
+                <a data-toggle="modal" href="#" data-target="#budgetOwnerModal"><i class="fa fa-refresh"></i> <span class="nav-label">Budget Owner</span> </a>
+                <a href="@Url.Action("ChangePersona", "Home", new { Id = "1"})"><i class="fa fa-arrow-right"></i> <span class="nav-label" id="budgetOwner"> @(Session["budgetOwnerName"] == null ? Html.Raw("- - - - - - - - - - - -") : Session["budgetOwnerName"] ) </span> </a>
+            </li>
+            <li class="">
+                <i class="fa fa-tasks persona-icon"></i>
+            </li>
+            <li class="@Html.IsSelected(action: "Minor")">
+                <a data-toggle="modal" href="#" data-target="#projectLeaderModal"><i class="fa fa-refresh"></i> <span class="nav-label">Project Leader</span> </a>
+                @*<a href="@Url.Action("ChangePersona", "Home", new { Id = "3"})"><i class="fa fa-shield "></i> <span class="nav-label">Project Leader</span></a>*@
+                <a href="@Url.Action("ChangePersona", "Home", new { Id = "3"})"><i class="fa fa-arrow-right"></i> <span class="nav-label" id="projectLeader">@(Session["projectLeaderName"] == null ? Html.Raw("- - - - - - - - - - - -") : Session["projectLeaderName"] )</span> </a>
+            </li>
+            <li class="">
+                <hr />
+                <i class="fa fa-sitemap persona-icon"></i>
+            </li>
+            <li class="@Html.IsSelected(action: "Minor")">
+                <a data-toggle="modal" href="#" data-target="#teamLeadModal"><i class="fa fa-refresh"></i> <span class="nav-label">Team Lead</span> </a>
+                @*<a href="@Url.Action("ChangePersona", "Home", new { Id = "2"})"><i class="fa fa-shield"></i> <span class="nav-label">Team Lead</span></a>*@
+                <a href="@Url.Action("ChangePersona", "Home", new { Id = "2"})"><i class="fa fa-arrow-right"></i> <span class="nav-label" id="teamLead">@(Session["teamLeadName"] == null ? Html.Raw("- - - - - - - - - - - -") : Session["teamLeadName"] )</span> </a>
+            </li>
+            <li class="">
+                <i class="fa fa-user-circle-o persona-icon"></i>
+            </li>
+            <li class="@Html.IsSelected(action: "Minor")">
+                <a data-toggle="modal" href="#" data-target="#projectResourceModal"><i class="fa fa-refresh"></i> <span class="nav-label">Project Resource</span> </a>
+                @*<a href="@Url.Action("ChangePersona", "Home", new { Id = "4"})"><i class="fa fa-shield "></i> <span class="nav-label">Project Resource</span></a>*@
+                <a href="@Url.Action("ChangePersona", "Home", new { Id = "4"})"><i class="fa fa-arrow-right"></i> <span class="nav-label" id="projectResource">@(Session["projectResourceName"] == null ? Html.Raw("- - - - - - - - - - - -") : Session["projectResourceName"] )</span> </a>
+            </li>
+            <li class="">
+                <i class="fa fa-money persona-icon"></i>
+            </li>
+            <li class="@Html.IsSelected(action: "Minor")">
+                <a data-toggle="modal" href="#" data-target="#treasuryModal"><i class="fa fa-refresh"></i> <span class="nav-label">Treasury</span> </a>
+                @*<a href="@Url.Action("ChangePersona", "Home", new { Id = "5"})"><i class="fa fa-shield "></i> <span class="nav-label">Treasury</span></a>*@
+                <a href="@Url.Action("ChangePersona", "Home", new { Id = "5"})"><i class="fa fa-arrow-right"></i> <span class="nav-label" id="treasury">@(Session["treasuryName"] == null ? Html.Raw("- - - - - - - - - - - -") : Session["treasuryName"] )</span> </a>
+            </li>
+            <li class="">
+                <hr />
+                <i class="fa fa-cogs persona-icon"></i>
+            </li>
+            <li class="@Html.IsSelected(action: "Minor")">
+                <a href="@Url.Action("ChangePersona", "Home", new { Id = "6"})"><i class="fa fa-cog "></i> <span class="nav-label">System</span></a>
+                <hr />
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="modal inmodal fade" id="budgetOwnerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Choose Budget Owner</h4>
+            </div>
+            @using (Html.BeginForm("SelectBudgetOwner", "Home"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <select name="UserAccountId" size="15" class="modal-listbox">
+                        @foreach (var item in GrdPoc.Models.ViewModels.NavigationViewModel.BudgetOwnersList)
+                        {
+                            <option value="@item.UserAccountId">@item.UserName</option>
+                        }
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Select User</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal fade" id="teamLeadModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Choose Team Lead</h4>
+            </div>
+            @using (Html.BeginForm("SelectTeamLead", "Home"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <select name="UserAccountId" size="15" class="modal-listbox">
+                        @foreach (var item in GrdPoc.Models.ViewModels.NavigationViewModel.TeamLeadList)
+                        {
+                            <option value="@item.UserAccountId">@item.UserName</option>
+                        }
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Select User</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal fade" id="projectLeaderModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Choose Project Leader</h4>
+            </div>
+            @using (Html.BeginForm("SelectProjectLeader", "Home"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <select name="UserAccountId" size="15" class="modal-listbox">
+                        @foreach (var item in GrdPoc.Models.ViewModels.NavigationViewModel.ProjectLeaderList)
+                        {
+                            <option value="@item.UserAccountId">@item.UserName</option>
+                        }
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Select User</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal fade" id="projectResourceModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Choose Project Resource</h4>
+            </div>
+            @using (Html.BeginForm("SelectProjectResource", "Home"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <select name="UserAccountId" size="15" class="modal-listbox">
+                        @foreach (var item in GrdPoc.Models.ViewModels.NavigationViewModel.ProjectResourceList)
+                        {
+                            <option value="@item.UserAccountId">@item.UserName</option>
+                        }
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Select User</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal fade" id="treasuryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Choose Treasurer</h4>
+            </div>
+            @using (Html.BeginForm("SelectTreasury", "Home"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <select name="UserAccountId" size="15" class="modal-listbox">
+                        @foreach (var item in GrdPoc.Models.ViewModels.NavigationViewModel.TreasuryList)
+                        {
+                            <option value="@item.UserAccountId">@item.UserName</option>
+                        }
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Select User</button>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+</div>
+
+
+

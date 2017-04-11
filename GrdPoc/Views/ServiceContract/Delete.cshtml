@@ -1,0 +1,208 @@
+﻿@model GrdPoc.Models.ViewModels.ServiceContractViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ServiceContractViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ControllerUserAccount.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControllerUserAccount.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracProvider.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracProvider.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracType.IncidentalContracTypeTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracType.IncidentalContracTypeTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerMunicipalEntity.MunicipalEntityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerMunicipalEntity.MunicipalEntityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerUserAccount.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerUserAccount.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProviderMunicipalEntity.MunicipalEntityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProviderMunicipalEntity.MunicipalEntityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContractTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContractTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracOwnerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracOwnerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracControllerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracControllerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracProviderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracProviderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracInvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracInvoiceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracDuration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracTimeframeStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracTimeframeStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracTimeframeEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracTimeframeEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OwnerTermsAgreementDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OwnerTermsAgreementDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProviderTermsAgreementDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProviderTermsAgreementDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControllerDeliverenceConfirmationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControllerDeliverenceConfirmationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProviderDeliverenceConfirmationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProviderDeliverenceConfirmationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceIncidentalContractId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceIncidentalContractId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceIncidentalContractPurpose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceIncidentalContractPurpose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceIncidentalContractHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceIncidentalContractHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceIncidentalContractProfile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceIncidentalContractProfile)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

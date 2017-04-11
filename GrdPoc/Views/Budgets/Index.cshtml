@@ -1,0 +1,60 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.Budget>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@Html.Partial("../Shared/_BudgetsTabsView")
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetOwner.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetIdCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetInitialBalance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetBalance)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetOwner.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetIdCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetInitialBalance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetBalance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BudgetId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BudgetId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BudgetId })
+        </td>
+    </tr>
+}
+
+</table>

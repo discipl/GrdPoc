@@ -1,0 +1,53 @@
+﻿@model GrdPoc.Models.Entities.BlockchainNodeServer
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+@Html.Partial("../Shared/_BlockchainTabsView")
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>BlockchainNodeServer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NodeServerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NodeServerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NodeServerNameAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NodeServerNameAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NodeServerIpAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NodeServerIpAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NodeServerActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NodeServerActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlockChainNodeServerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

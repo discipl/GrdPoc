@@ -1,0 +1,138 @@
+﻿@model GrdPoc.Models.Entities.Invoice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Invoice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceIssuerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceIssuerAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerKvk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceIssuerKvk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerBtw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceIssuerBtw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerIban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceIssuerIban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceCustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceCustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceCustomeAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceCustomeAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceCustomeKvk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceCustomeKvk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceCustomeBtw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceCustomeBtw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceVatTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceVatTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceValueTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceValueTotal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InvoiceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

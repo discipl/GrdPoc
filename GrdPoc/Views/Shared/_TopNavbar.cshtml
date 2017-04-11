@@ -1,0 +1,87 @@
+﻿<div class="row border-bottom">
+    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <div class="navbar-collapse collapse">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                @if (Session["Persona"]?.ToString() == "Budget Owner")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Dashboard", "Index", "BudgetOwner")</li>
+                        <li>@Html.ActionLink("Contracts", "Contracts", "BudgetOwner")</li>
+                        <li>@Html.ActionLink("Budgets", "Budgets", "BudgetOwner")</li>
+                    </ul>
+                }
+                @if (Session["Persona"]?.ToString() == "Team Leader")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Dashboard", "Index", "TeamLeader")</li>
+                        <li>@Html.ActionLink("Contracts", "Contracts", "TeamLeader")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "TeamLeader")</li>
+                    </ul>
+                }
+                @if (Session["Persona"]?.ToString() == "Project Leader")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Dashboard", "Index", "ProjectLeader")</li>
+                        <li>@Html.ActionLink("Contracts", "Contracts", "ProjectLeader")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "ProjectLeader")</li>
+                    </ul>
+                }
+                @if (Session["Persona"]?.ToString() == "Project Resource")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Dashboard", "Index", "ProjectResource")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "ProjectResource")</li>
+                    </ul>
+                }
+                @if (Session["Persona"]?.ToString() == "Treasury")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Dashboard", "Index", "Treasury")</li>
+                        <li>@Html.ActionLink("Invoices", "Invoices", "Treasury")</li>
+                    </ul>
+                }
+                @if (Session["Persona"]?.ToString() == "System")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Dashboard", "Index", "System")</li>
+                        <li>@Html.ActionLink("Invoices", "Index", "Invoices")</li>
+                        <li>@Html.ActionLink("Blockchain", "Index", "BlockchainNodeServers")</li>
+                        <li>@Html.ActionLink("Contracts", "Index", "IncidentalContracts")</li>
+                        <li>@Html.ActionLink("Codes", "Index", "ProductCodeCategories")</li>
+                        <li>@Html.ActionLink("Budgets", "Index", "BudgetBalanceTransactions")</li>
+                        <li>@Html.ActionLink("Accounts/Entities", "Index", "PersonaTypes")</li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Direct Table Access <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Contracts", "Index", "IncidentalContracts")</li>
+                                <li>@Html.ActionLink("Contracts Items", "Index", "IncidentalContractItems")</li>
+                                <li>@Html.ActionLink("Contracts Types", "Index", "IncidentalContracTypes")</li>
+                                <li>@Html.ActionLink("Service Contracts", "Index", "ServiceIncidentalContracts")</li>
+                                <li>@Html.ActionLink("Product Contracts", "Index", "ProductIncidentalContracts")</li>
+                                <li>@Html.ActionLink("Training Contracts", "Index", "TrainningIncidentalContracts")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Projects", "Index", "ExecutionProjects")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Budgets", "Index", "Budgets")</li>
+                                <li>@Html.ActionLink("Budget Balance Transactions", "Index", "BudgetBalanceTransactions")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Invoices", "Index", "Invoices")</li>
+                                <li>@Html.ActionLink("Invoice Items", "Index", "InvoiceItems")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Municipal Entities", "Index", "MunicipalEntities")</li>
+                                <li>@Html.ActionLink("Municipal Entity Types", "Index", "MunicipalEntityTypes")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Persona Types", "Index", "PersonaTypes")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Product Codes", "Index", "ProductCodes")</li>
+                                <li>@Html.ActionLink("Product Code Categories", "Index", "ProductCodeCategories")</li>
+                           </ul>
+                        </li>
+                    </ul>
+                }
+            </div>
+        </div>
+        @Html.Partial("_LoginPartial")
+    </nav>
+</div>

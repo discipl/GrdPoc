@@ -1,0 +1,114 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.ProductIncidentalContract>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@Html.Partial("../Shared/_ContractsTabsView")
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracController.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracOwner.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracProvider.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContract.ContractTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContractTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracDuration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracTimeframeStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContracTimeframeEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerTermsAgreementDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProviderTermsAgreementDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControllerDeliverenceConfirmationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProviderDeliverenceConfirmationDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracController.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracOwner.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracProvider.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContract.ContractTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContractTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracTimeframeStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContracTimeframeEnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerTermsAgreementDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProviderTermsAgreementDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControllerDeliverenceConfirmationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProviderDeliverenceConfirmationDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TrainningIncidentalContractId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TrainningIncidentalContractId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TrainningIncidentalContractId })
+        </td>
+    </tr>
+}
+
+</table>

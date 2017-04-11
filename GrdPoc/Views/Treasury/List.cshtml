@@ -1,0 +1,112 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.Invoice>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Invoices List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerKvk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerBtw)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceIssuerIban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceDueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceCustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceCustomeAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceCustomeKvk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceCustomeBtw)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceVatTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceValueTotal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceIssuerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceIssuerAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceIssuerKvk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceIssuerBtw)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceIssuerIban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceDueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceCustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceCustomeAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceCustomeKvk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceCustomeBtw)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceVatTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceValueTotal)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.InvoiceId })
+        </td>
+    </tr>
+}
+
+</table>

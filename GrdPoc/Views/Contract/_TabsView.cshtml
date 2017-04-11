@@ -1,0 +1,33 @@
+﻿
+@if (Session["Persona"]?.ToString() == "Budget Owner")
+{
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="@Html.IsSelected(action: "ListOpen")"><a href="/Contract/ListOpen">Open Contracts</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListApprove")"><a href="/Contract/ListApprove">Open Contracts for Approval</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListOwner")"><a href="/Contract/ListOwner">Open Contracts I'm Owner</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListProvider")"><a href="/Contract/ListProvider">Open Contracts I'm Provider</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListDelivered")"><a href="/Contract/ListDelivered">Delivered Contracts I'm Owner</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListClosed")"><a href="/Contract/ListClosed">Closed Contracts</a></li>
+    </ul>
+}
+
+@if (Session["Persona"]?.ToString() == "Team Leader")
+{
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="@Html.IsSelected(action: "ListOpen")"><a href="/Contract/ListOpen">Open Contracts</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListApprove")"><a href="/Contract/ListApprove">Open Contracts for Approval</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListProvider")"><a href="/Contract/ListProvider">Open Contracts I'm Provider</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListDelivered")"><a href="/Contract/ListDelivered">Delivered Contracts I'm Provider</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListClosed")"><a href="/Contract/ListClosed">Closed Contracts</a></li>
+    </ul>
+}
+@if (Session["Persona"]?.ToString() == "Project Leader")
+{
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="@Html.IsSelected(action: "ListController")"><a href="/Contract/ListController">Open Contracts I'm Controller</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListDelivered")"><a href="/Contract/ListDelivered">Delivered Contracts I'm Controller</a></li>
+        <li role="presentation" class="@Html.IsSelected(action: "ListClosed")"><a href="/Contract/ListClosed">Closed Contracts</a></li>
+    </ul>
+}
+
+

@@ -1,0 +1,59 @@
+﻿@model GrdPoc.Models.Entities.BudgetBalanceTransaction
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+@Html.Partial("../Shared/_BudgetsTabsView")
+
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BudgetBalanceTransaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalanceDeposit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalanceDeposit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalanceDepositSource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalanceDepositSource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalanceWithdrawal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalanceWithdrawal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalanceWithdrawalSource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalanceWithdrawalSource)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

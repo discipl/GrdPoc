@@ -1,0 +1,287 @@
+﻿@model GrdPoc.Models.ViewModels.BudgetOwnerDashboardViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="col-sm-12">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-center">
+        <h2>Initiate<br />New Contract</h2>
+        <p class="text-center"><a class="btn btn-default btn-large" href="/Contract"><i class="fa fa-plus"></i></a></p>
+    </div>
+    <div class="col-md-5 text-center">
+        <h2>Contracts in Negotiation</h2>
+        <div id="negotiationContractItems" class="dashboard-items-box">
+            <table class="table">
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Owner
+                    </th>
+                    <th>
+                        Provider
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model?.ContractsInNegotiationList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracType.IncidentalContracDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracOwnerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracProviderName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("View", "Edit", "Contract", new { id = item.IncidentalContractId }, null)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+    <div class="col-md-5 text-center">
+        <h2>Contracts for Approval</h2>
+        <div id="approvalContractItems" class="dashboard-items-box">
+            <table class="table">
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Owner
+                    </th>
+                    <th>
+                        Provider
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model?.ContractsInApprovalList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContractTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracType.IncidentalContracDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracOwnerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncidentalContracProviderName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("View", "View", "Contract", new { id = item.IncidentalContractId }, null)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+<hr />
+
+<div class="row">
+
+@if (Model.BudgetsList.Count() >= 1)
+{
+
+    <div class="col-sm-4 text-center">
+        <div class="col-sm-12 label">
+            <h1 class="m-b-xs">
+                @Model.BudgetsList[0].CurrentBudget
+            </h1>
+            <small>
+                Current Budget in "@Model.BudgetsList[0].BudgetName"
+            </small>
+            @*<div id="sparkline1" class="m-b-sm">
+                <canvas width="350" height="100" style="display: inline-block; width: 350px; height: 100px; vertical-align: top;"></canvas>
+            </div>*@
+            <div class="ibox" style="margin-top: 10px;">
+                <div class="ibox-content">
+                    <h5>Available Budget</h5>
+                    <h2>@Model.BudgetsList[0].BudgetsAvailablePercentage%</h2>
+                    <div class="progress progress-mini">
+                        <div style="width: @Model.BudgetsList[0].BudgetsAvailablePercentage%;" class="progress-bar"></div>
+                    </div>
+                    <div class="m-t-sm small">(@Model.BudgetsList[0].CurrentBudget)</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4">
+                    <small class="stats-label">Initial Bugdet</small>
+                    <h4>@Model.BudgetsList[0].InitialBudget</h4>
+                </div>
+
+                <div class="col-xs-4">
+                    <small class="stats-label">Outstanding Budget</small>
+                    <h4>@Model.BudgetsList[0].OutstandingBudget</h4>
+                </div>
+                <div class="col-xs-4">
+                    <small class="stats-label">Budget Spent</small>
+                    <h4>@Model.BudgetsList[0].BudgetSpent</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.BudgetsList.Count() >= 2)
+{
+
+    <div class="col-sm-4 text-center">
+        <div class="col-sm-12 label">
+            <h1 class="m-b-xs">
+                @Model.BudgetsList[1].CurrentBudget
+            </h1>
+            <small>
+                Current Budget in "@Model.BudgetsList[1].BudgetName"
+            </small>
+            @*<div id="sparkline2" class="m-b-sm">
+                <canvas width="350" height="100" style="display: inline-block; width: 350px; height: 100px; vertical-align: top;"></canvas>
+            </div>*@
+            <div class="ibox" style="margin-top: 10px;">
+                <div class="ibox-content">
+                    <h5>Available Budget</h5>
+                    <h2>@Model.BudgetsList[1].BudgetsAvailablePercentage%</h2>
+                    <div class="progress progress-mini">
+                        <div style="width: @Model.BudgetsList[1].BudgetsAvailablePercentage%;" class="progress-bar"></div>
+                    </div>
+                    <div class="m-t-sm small">(@Model.BudgetsList[1].CurrentBudget)</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <small class="stats-label">Initial Bugdet</small>
+                    <h4>@Model.BudgetsList[1].InitialBudget</h4>
+                </div>
+
+                <div class="col-xs-4">
+                    <small class="stats-label">Outstanding Budget</small>
+                    <h4>@Model.BudgetsList[1].OutstandingBudget</h4>
+                </div>
+                <div class="col-xs-4">
+                    <small class="stats-label">Budget Spent</small>
+                    <h4>@Model.BudgetsList[1].BudgetSpent</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@if (Model.BudgetsList.Count() >= 3)
+{
+
+    <div class="col-sm-4 text-center">
+        <div class="col-sm-12 label">
+            <h1 class="m-b-xs">
+                @Model.BudgetsList[2].CurrentBudget
+            </h1>
+            <small>
+                Current Budget in "@Model.BudgetsList[2].BudgetName"
+            </small>
+            @*<div id="sparkline3" class="m-b-sm">
+                <canvas width="350" height="100" style="display: inline-block; width: 350px; height: 100px; vertical-align: top;"></canvas>
+            </div>*@
+            <div class="ibox" style="margin-top: 10px;">
+                <div class="ibox-content">
+                    <h5>Available Budget</h5>
+                    <h2>@Model.BudgetsList[2].BudgetsAvailablePercentage%</h2>
+                    <div class="progress progress-mini">
+                        <div style="width: @Model.BudgetsList[2].BudgetsAvailablePercentage%;" class="progress-bar"></div>
+                    </div>
+                    <div class="m-t-sm small">(@Model.BudgetsList[2].CurrentBudget)</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <small class="stats-label">Initial Bugdet</small>
+                    <h4>@Model.BudgetsList[2].InitialBudget</h4>
+                </div>
+
+                <div class="col-xs-4">
+                    <small class="stats-label">Outstanding Budget</small>
+                    <h4>@Model.BudgetsList[2].OutstandingBudget</h4>
+                </div>
+                <div class="col-xs-4">
+                    <small class="stats-label">Budget Spent</small>
+                    <h4>@Model.BudgetsList[2].BudgetSpent</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+</div>
+
+
+
+@section Scripts {
+<script src="~/Scripts/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script>
+        $(document).ready(function() {
+
+            var sparklineCharts = function(){
+                $("#sparkline1").sparkline([@if (Model.BudgetsList.Count() >= 1) { @Model.BudgetsList[0].ValuesArray } ], {
+                    type: 'line',
+                    width: '90%',
+                    height: '100',
+                    lineColor: '#1C84C6',
+                    fillColor: "transparent"
+                });
+
+                $("#sparkline2").sparkline([@if (Model.BudgetsList.Count() >= 2) { @Model.BudgetsList[1].ValuesArray } ], {
+                    type: 'line',
+                    width: '100%',
+                    height: '100',
+                    lineColor: '#1C84C6',
+                    fillColor: "transparent"
+                });
+
+                $("#sparkline3").sparkline([@if (Model.BudgetsList.Count() >= 3) { @Model.BudgetsList[2].ValuesArray } ], {
+                    type: 'line',
+                    width: '100%',
+                    height: '100',
+                    lineColor: '#1C84C6',
+                    fillColor: "transparent"
+                });
+            };
+
+            var sparkResize;
+
+            $(window).resize(function(e) {
+                clearTimeout(sparkResize);
+                sparkResize = setTimeout(sparklineCharts, 500);
+            });
+
+            sparklineCharts();
+
+        });
+</script>}
+
+
+
+

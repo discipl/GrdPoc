@@ -1,0 +1,61 @@
+﻿@model GrdPoc.Models.Entities.IncidentalContracType
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+@Html.Partial("../Shared/_ContractsTabsView")
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>IncidentalContracType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SmartContract.SmartContractName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmartContract.SmartContractName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracTypeTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracTypeTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracMvcController)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracMvcController)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracTypeActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracTypeActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IncidentalContracTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

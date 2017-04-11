@@ -1,0 +1,67 @@
+﻿@model GrdPoc.Models.Entities.IncidentalContracType
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+@Html.Partial("../Shared/_ContractsTabsView")
+
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>IncidentalContracType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SmartContract.SmartContractName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmartContract.SmartContractName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracTypeTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracTypeTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracMvcController)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracMvcController)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContracTypeActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContracTypeActive)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

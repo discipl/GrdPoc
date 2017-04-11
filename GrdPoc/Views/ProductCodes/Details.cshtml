@@ -1,0 +1,53 @@
+﻿@model GrdPoc.Models.Entities.ProductCode
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+@Html.Partial("../Shared/_CodesTabsView")
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductCode</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCodeCategory.ProductCodeCategoryDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCodeCategory.ProductCodeCategoryDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCodeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCodeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCodeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCodeType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCodeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCodeDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductCodeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

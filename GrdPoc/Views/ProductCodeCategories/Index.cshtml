@@ -1,0 +1,42 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.ProductCodeCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@Html.Partial("../Shared/_CodesTabsView")
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCodeCategoryNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCodeCategoryDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCodeCategoryNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCodeCategoryDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductCodeCategoryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductCodeCategoryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductCodeCategoryId })
+        </td>
+    </tr>
+}
+
+</table>

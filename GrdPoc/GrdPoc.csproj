@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0F5ABC38-63AE-4197-B29F-78CFFC86ABCF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GrdPoc</RootNamespace>
+    <AssemblyName>GrdPoc</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.1\lib\net45\crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EdjCase.JsonRpc.Client, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EdjCase.JsonRpc.Client.1.1.0\lib\net451\EdjCase.JsonRpc.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EdjCase.JsonRpc.Core, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EdjCase.JsonRpc.Core.1.1.0\lib\net451\EdjCase.JsonRpc.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nethereum.ABI, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.ABI.1.0.6\lib\net451\Nethereum.ABI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Hex, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Hex.1.0.6\lib\net451\Nethereum.Hex.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.JsonRpc.Client, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.JsonRpc.Client.1.0.6\lib\net451\Nethereum.JsonRpc.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.RPC, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.RPC.1.0.6\lib\net451\Nethereum.RPC.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nethereum.Web3, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nethereum.Web3.1.0.6\lib\net451\Nethereum.Web3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="TinyMapper, Version=2.0.0.40, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TinyMapper.2.0.8\lib\net45\TinyMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\InitializeAutoMapper.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BudgetController.cs" />
+    <Compile Include="Controllers\CRUD\BudgetsController.cs" />
+    <Compile Include="Controllers\CRUD\BudgetBalanceTransactionsController.cs" />
+    <Compile Include="Controllers\CRUD\BlockchainNodeServersController.cs" />
+    <Compile Include="Controllers\CRUD\BlockchainAccountsController.cs" />
+    <Compile Include="Controllers\BudgetOwnerController.cs" />
+    <Compile Include="Controllers\ContractController.cs" />
+    <Compile Include="Controllers\CRUD\ExecutionProjectsController.cs" />
+    <Compile Include="Controllers\API\InvoiceController.cs" />
+    <Compile Include="Controllers\CRUD\InvoicesController.cs" />
+    <Compile Include="Controllers\CRUD\InvoiceItemsController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CRUD\IncidentalContractItemsController.cs" />
+    <Compile Include="Controllers\CRUD\IncidentalContractsController.cs" />
+    <Compile Include="Controllers\CRUD\IncidentalContracTypesController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\CRUD\ProductIncidentalContractsController.cs" />
+    <Compile Include="Controllers\CRUD\MunicipalEntitiesController.cs" />
+    <Compile Include="Controllers\CRUD\MunicipalEntityTypesController.cs" />
+    <Compile Include="Controllers\CRUD\PersonaTypesController.cs" />
+    <Compile Include="Controllers\CRUD\ProductCodeCategoriesController.cs" />
+    <Compile Include="Controllers\CRUD\ProductCodesController.cs" />
+    <Compile Include="Controllers\ProjectLeaderController.cs" />
+    <Compile Include="Controllers\ProjectResourceController.cs" />
+    <Compile Include="Controllers\CRUD\SmartContractsController.cs" />
+    <Compile Include="Controllers\CRUD\ServiceIncidentalContractsController.cs" />
+    <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\TeamLeaderController.cs" />
+    <Compile Include="Controllers\CRUD\TrainningIncidentalContractsController.cs" />
+    <Compile Include="Controllers\TreasuryController.cs" />
+    <Compile Include="Controllers\CRUD\UserAccountsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Enums.cs" />
+    <Compile Include="Helpers\HMTLHelperExtensions.cs" />
+    <Compile Include="Migrations\201703201752383_Initial_Migration.cs" />
+    <Compile Include="Migrations\201703201752383_Initial_Migration.Designer.cs">
+      <DependentUpon>201703201752383_Initial_Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703212035308_Update_to_BaseContract_class.cs" />
+    <Compile Include="Migrations\201703212035308_Update_to_BaseContract_class.Designer.cs">
+      <DependentUpon>201703212035308_Update_to_BaseContract_class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703212045213_Update_to_municipalentities.cs" />
+    <Compile Include="Migrations\201703212045213_Update_to_municipalentities.Designer.cs">
+      <DependentUpon>201703212045213_Update_to_municipalentities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703212119188_droped_ServiceContractViewModels.cs" />
+    <Compile Include="Migrations\201703212119188_droped_ServiceContractViewModels.Designer.cs">
+      <DependentUpon>201703212119188_droped_ServiceContractViewModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703222225383_fixed_contracttype_foreignkey.cs" />
+    <Compile Include="Migrations\201703222225383_fixed_contracttype_foreignkey.Designer.cs">
+      <DependentUpon>201703222225383_fixed_contracttype_foreignkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703230012129_fix_added_status_field.cs" />
+    <Compile Include="Migrations\201703230012129_fix_added_status_field.Designer.cs">
+      <DependentUpon>201703230012129_fix_added_status_field.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271007529_Added_ExecutionProject_table.cs" />
+    <Compile Include="Migrations\201703271007529_Added_ExecutionProject_table.Designer.cs">
+      <DependentUpon>201703271007529_Added_ExecutionProject_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703271213149_Fix_budget_tables.cs" />
+    <Compile Include="Migrations\201703271213149_Fix_budget_tables.Designer.cs">
+      <DependentUpon>201703271213149_Fix_budget_tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291042360_added_invoice_tables.cs" />
+    <Compile Include="Migrations\201703291042360_added_invoice_tables.Designer.cs">
+      <DependentUpon>201703291042360_added_invoice_tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703291334504_fixes_to_invoice_tables.cs" />
+    <Compile Include="Migrations\201703291334504_fixes_to_invoice_tables.Designer.cs">
+      <DependentUpon>201703291334504_fixes_to_invoice_tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Entities\BlockchainNodeAccount.cs" />
+    <Compile Include="Models\Entities\BlockchainNodeServer.cs" />
+    <Compile Include="Models\Entities\Budget.cs" />
+    <Compile Include="Models\Entities\BudgetBalanceTransaction.cs" />
+    <Compile Include="Models\Entities\ExecutionProject.cs" />
+    <Compile Include="Models\Entities\IncidentalContract.cs" />
+    <Compile Include="Models\Entities\BaseIncidentalContract.cs" />
+    <Compile Include="Models\Entities\IncidentalContractItem.cs" />
+    <Compile Include="Models\Entities\IncidentalContracType.cs" />
+    <Compile Include="Models\Entities\Invoice.cs" />
+    <Compile Include="Models\Entities\InvoiceItem.cs" />
+    <Compile Include="Models\Entities\MunicipalEntity.cs" />
+    <Compile Include="Models\Entities\MunicipalEntityType.cs" />
+    <Compile Include="Models\Entities\PersonaType.cs" />
+    <Compile Include="Models\Entities\ProductCode.cs" />
+    <Compile Include="Models\Entities\ProductCodeCategory.cs" />
+    <Compile Include="Models\Entities\ProductIncidentalContract.cs" />
+    <Compile Include="Models\Entities\ServiceIncidentalContract.cs" />
+    <Compile Include="Models\Entities\SmartContract.cs" />
+    <Compile Include="Models\Entities\TrainningAttendee.cs" />
+    <Compile Include="Models\Entities\TrainningIncidentalContract.cs" />
+    <Compile Include="Models\Entities\UserAccount.cs" />
+    <Compile Include="Models\ViewModels\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ViewModels\ProductContractViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProjectResourceDashboardViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProjectLeaderDashboardViewModel.cs" />
+    <Compile Include="Models\ViewModels\TrainingContractViewModel.cs" />
+    <Compile Include="Models\ViewModels\TeamLeadDashboardViewModel.cs" />
+    <Compile Include="Models\ViewModels\BudgetOwnerDashboardViewModel.cs" />
+    <Compile Include="Models\ViewModels\BudgetViewModel.cs" />
+    <Compile Include="Models\ViewModels\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModels\NavigationViewModel.cs" />
+    <Compile Include="Models\ViewModels\ServiceContractViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\ExampleContractService.cs" />
+    <Compile Include="Services\SmartContractService.cs" />
+    <Compile Include="Services\TestContractService.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\contract-black.png" />
+    <Content Include="Content\Images\contract-gray.png" />
+    <Content Include="Content\Images\contract-green.png" />
+    <Content Include="Content\patterns\1.png" />
+    <Content Include="Content\patterns\2.png" />
+    <Content Include="Content\patterns\3.png" />
+    <Content Include="Content\patterns\4.png" />
+    <Content Include="Content\patterns\5.png" />
+    <Content Include="Content\patterns\6.png" />
+    <Content Include="Content\patterns\7.png" />
+    <Content Include="Content\patterns\congruent_pentagon.png" />
+    <Content Include="Content\patterns\header-profile-skin-1.png" />
+    <Content Include="Content\patterns\header-profile-skin-2.png" />
+    <Content Include="Content\patterns\header-profile-skin-3.png" />
+    <Content Include="Content\patterns\header-profile.png" />
+    <Content Include="Content\patterns\otis_redding.png" />
+    <Content Include="Content\patterns\shattered.png" />
+    <Content Include="Content\patterns\triangular.png" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\app\inspinia.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\font-awesome\less\animated.less" />
+    <Content Include="fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="fonts\font-awesome\less\core.less" />
+    <Content Include="fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="fonts\font-awesome\less\icons.less" />
+    <Content Include="fonts\font-awesome\less\larger.less" />
+    <Content Include="fonts\font-awesome\less\list.less" />
+    <Content Include="fonts\font-awesome\less\mixins.less" />
+    <Content Include="fonts\font-awesome\less\path.less" />
+    <Content Include="fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="fonts\font-awesome\less\screen-reader.less" />
+    <Content Include="fonts\font-awesome\less\stacked.less" />
+    <Content Include="fonts\font-awesome\less\variables.less" />
+    <Content Include="fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="fonts\font-awesome\scss\_animated.scss" />
+    <Content Include="fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="fonts\font-awesome\scss\_core.scss" />
+    <Content Include="fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="fonts\font-awesome\scss\_list.scss" />
+    <Content Include="fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="fonts\font-awesome\scss\_path.scss" />
+    <Content Include="fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="fonts\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker.css.map" />
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\Lab15-GrdPoc - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nb.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\plugins\metisMenu\metisMenu.min.js" />
+    <Content Include="Scripts\plugins\pace\pace.min.js" />
+    <Content Include="Scripts\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Layout-Original.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial-Original.cshtml" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Shared\_TopNavbar.cshtml" />
+    <Content Include="Views\IncidentalContracts\Create.cshtml" />
+    <Content Include="Views\IncidentalContracts\Delete.cshtml" />
+    <Content Include="Views\IncidentalContracts\Details.cshtml" />
+    <Content Include="Views\IncidentalContracts\Edit.cshtml" />
+    <Content Include="Views\IncidentalContracts\Index.cshtml" />
+    <Content Include="Views\BudgetOwner\Index.cshtml" />
+    <Content Include="Views\ProjectLeader\Index.cshtml" />
+    <Content Include="Views\ProjectResource\Index.cshtml" />
+    <Content Include="Views\System\Index.cshtml" />
+    <Content Include="Views\TeamLeader\Index.cshtml" />
+    <Content Include="Views\Treasury\Index.cshtml" />
+    <Content Include="Views\Contract\Index.cshtml" />
+    <Content Include="Views\ServiceIncidentalContracts\Create.cshtml" />
+    <Content Include="Views\ServiceIncidentalContracts\Delete.cshtml" />
+    <Content Include="Views\ServiceIncidentalContracts\Details.cshtml" />
+    <Content Include="Views\ServiceIncidentalContracts\Edit.cshtml" />
+    <Content Include="Views\ServiceIncidentalContracts\Index.cshtml" />
+    <Content Include="Views\ProductIncidentalContracts\Create.cshtml" />
+    <Content Include="Views\ProductIncidentalContracts\Delete.cshtml" />
+    <Content Include="Views\ProductIncidentalContracts\Details.cshtml" />
+    <Content Include="Views\ProductIncidentalContracts\Edit.cshtml" />
+    <Content Include="Views\ProductIncidentalContracts\Index.cshtml" />
+    <Content Include="Views\TrainningIncidentalContracts\Create.cshtml" />
+    <Content Include="Views\TrainningIncidentalContracts\Delete.cshtml" />
+    <Content Include="Views\TrainningIncidentalContracts\Details.cshtml" />
+    <Content Include="Views\TrainningIncidentalContracts\Edit.cshtml" />
+    <Content Include="Views\TrainningIncidentalContracts\Index.cshtml" />
+    <Content Include="Views\Contract\CreateService.cshtml" />
+    <Content Include="Views\Contract\CreateProduct.cshtml" />
+    <Content Include="Views\Contract\CreateTrainning.cshtml" />
+    <Content Include="Views\Contract\EditService.cshtml" />
+    <Content Include="Views\ServiceContract\CreateService.cshtml" />
+    <Content Include="Views\ServiceContract\Delete.cshtml" />
+    <Content Include="Views\ServiceContract\Details.cshtml" />
+    <Content Include="Views\ServiceContract\EditService.cshtml" />
+    <Content Include="Views\ServiceContract\Index.cshtml" />
+    <Content Include="Views\IncidentalContractItems\Create.cshtml" />
+    <Content Include="Views\IncidentalContractItems\Delete.cshtml" />
+    <Content Include="Views\IncidentalContractItems\Details.cshtml" />
+    <Content Include="Views\IncidentalContractItems\Edit.cshtml" />
+    <Content Include="Views\IncidentalContractItems\Index.cshtml" />
+    <Content Include="Views\Contract\CreateItem.cshtml" />
+    <Content Include="Views\Contract\EditItem.cshtml" />
+    <Content Include="Views\Contract\ListOpen.cshtml" />
+    <Content Include="Views\Contract\_TabsView.cshtml" />
+    <Content Include="Views\Contract\ListOwner.cshtml" />
+    <Content Include="Views\Contract\ListProvider.cshtml" />
+    <Content Include="Views\Contract\ListController.cshtml" />
+    <Content Include="Views\Contract\ListDelivered.cshtml" />
+    <Content Include="Views\Contract\ListClosed.cshtml" />
+    <Content Include="Views\BlockchainAccounts\Create.cshtml" />
+    <Content Include="Views\BlockchainAccounts\Delete.cshtml" />
+    <Content Include="Views\BlockchainAccounts\Details.cshtml" />
+    <Content Include="Views\BlockchainAccounts\Edit.cshtml" />
+    <Content Include="Views\BlockchainAccounts\Index.cshtml" />
+    <Content Include="Views\BlockchainNodeServers\Create.cshtml" />
+    <Content Include="Views\BlockchainNodeServers\Delete.cshtml" />
+    <Content Include="Views\BlockchainNodeServers\Details.cshtml" />
+    <Content Include="Views\BlockchainNodeServers\Edit.cshtml" />
+    <Content Include="Views\BlockchainNodeServers\Index.cshtml" />
+    <Content Include="Views\BudgetBalanceTransactions\Create.cshtml" />
+    <Content Include="Views\BudgetBalanceTransactions\Delete.cshtml" />
+    <Content Include="Views\BudgetBalanceTransactions\Details.cshtml" />
+    <Content Include="Views\BudgetBalanceTransactions\Edit.cshtml" />
+    <Content Include="Views\BudgetBalanceTransactions\Index.cshtml" />
+    <Content Include="Views\IncidentalContracTypes\Create.cshtml" />
+    <Content Include="Views\IncidentalContracTypes\Delete.cshtml" />
+    <Content Include="Views\IncidentalContracTypes\Details.cshtml" />
+    <Content Include="Views\IncidentalContracTypes\Edit.cshtml" />
+    <Content Include="Views\IncidentalContracTypes\Index.cshtml" />
+    <Content Include="Views\MunicipalEntities\Create.cshtml" />
+    <Content Include="Views\MunicipalEntities\Delete.cshtml" />
+    <Content Include="Views\MunicipalEntities\Details.cshtml" />
+    <Content Include="Views\MunicipalEntities\Edit.cshtml" />
+    <Content Include="Views\MunicipalEntities\Index.cshtml" />
+    <Content Include="Views\MunicipalEntityTypes\Create.cshtml" />
+    <Content Include="Views\MunicipalEntityTypes\Delete.cshtml" />
+    <Content Include="Views\MunicipalEntityTypes\Details.cshtml" />
+    <Content Include="Views\MunicipalEntityTypes\Edit.cshtml" />
+    <Content Include="Views\MunicipalEntityTypes\Index.cshtml" />
+    <Content Include="Views\PersonaTypes\Create.cshtml" />
+    <Content Include="Views\PersonaTypes\Delete.cshtml" />
+    <Content Include="Views\PersonaTypes\Details.cshtml" />
+    <Content Include="Views\PersonaTypes\Edit.cshtml" />
+    <Content Include="Views\PersonaTypes\Index.cshtml" />
+    <Content Include="Views\ProductCodes\Create.cshtml" />
+    <Content Include="Views\ProductCodes\Delete.cshtml" />
+    <Content Include="Views\ProductCodes\Details.cshtml" />
+    <Content Include="Views\ProductCodes\Edit.cshtml" />
+    <Content Include="Views\ProductCodes\Index.cshtml" />
+    <Content Include="Views\ProductCodeCategories\Create.cshtml" />
+    <Content Include="Views\ProductCodeCategories\Delete.cshtml" />
+    <Content Include="Views\ProductCodeCategories\Details.cshtml" />
+    <Content Include="Views\ProductCodeCategories\Edit.cshtml" />
+    <Content Include="Views\ProductCodeCategories\Index.cshtml" />
+    <Content Include="Views\SmartContracts\Create.cshtml" />
+    <Content Include="Views\SmartContracts\Delete.cshtml" />
+    <Content Include="Views\SmartContracts\Details.cshtml" />
+    <Content Include="Views\SmartContracts\Edit.cshtml" />
+    <Content Include="Views\SmartContracts\Index.cshtml" />
+    <Content Include="Views\UserAccounts\Create.cshtml" />
+    <Content Include="Views\UserAccounts\Delete.cshtml" />
+    <Content Include="Views\UserAccounts\Details.cshtml" />
+    <Content Include="Views\UserAccounts\Edit.cshtml" />
+    <Content Include="Views\UserAccounts\Index.cshtml" />
+    <Content Include="Views\Shared\_BlockchainTabsView.cshtml" />
+    <Content Include="Views\Shared\_ContractsTabsView.cshtml" />
+    <Content Include="Views\Shared\_CodesTabsView.cshtml" />
+    <Content Include="Views\Shared\_BudgetsTabsView.cshtml" />
+    <Content Include="Views\Shared\_AccountsTabsView.cshtml" />
+    <Content Include="Views\ExecutionProjects\Create.cshtml" />
+    <Content Include="Views\ExecutionProjects\Delete.cshtml" />
+    <Content Include="Views\ExecutionProjects\Details.cshtml" />
+    <Content Include="Views\ExecutionProjects\Edit.cshtml" />
+    <Content Include="Views\ExecutionProjects\Index.cshtml" />
+    <Content Include="Views\Contract\ListApprove.cshtml" />
+    <Content Include="Views\Contract\ViewService.cshtml" />
+    <Content Include="Views\Project\Edit.cshtml" />
+    <Content Include="Views\Project\ListConfigure.cshtml" />
+    <Content Include="Views\Project\_TabsView.cshtml" />
+    <Content Include="Views\Project\ListToStart.cshtml" />
+    <Content Include="Views\Project\ListExecution.cshtml" />
+    <Content Include="Views\Project\ListDelivered.cshtml" />
+    <Content Include="Views\Project\ListClosed.cshtml" />
+    <Content Include="Views\Invoices\Create.cshtml" />
+    <Content Include="Views\Invoices\Delete.cshtml" />
+    <Content Include="Views\Invoices\Details.cshtml" />
+    <Content Include="Views\Invoices\Edit.cshtml" />
+    <Content Include="Views\Invoices\Index.cshtml" />
+    <Content Include="Views\InvoiceItems\Create.cshtml" />
+    <Content Include="Views\InvoiceItems\Delete.cshtml" />
+    <Content Include="Views\InvoiceItems\Details.cshtml" />
+    <Content Include="Views\InvoiceItems\Edit.cshtml" />
+    <Content Include="Views\InvoiceItems\Index.cshtml" />
+    <Content Include="Views\InvoiceItems\List.cshtml" />
+    <Content Include="Views\Invoices\List.cshtml" />
+    <Content Include="Views\Treasury\List.cshtml" />
+    <Content Include="Views\Treasury\Details.cshtml" />
+    <Content Include="Views\Budgets\Create.cshtml" />
+    <Content Include="Views\Budgets\Delete.cshtml" />
+    <Content Include="Views\Budgets\Details.cshtml" />
+    <Content Include="Views\Budgets\Edit.cshtml" />
+    <Content Include="Views\Budgets\Index.cshtml" />
+    <Content Include="Views\Budgets\List.cshtml" />
+    <Content Include="Views\Budget\List.cshtml" />
+    <Content Include="Views\Budget\Details.cshtml" />
+    <Content Include="Views\Project\ViewService.cshtml" />
+    <Content Include="Views\Treasury\ViewProject.cshtml" />
+    <Content Include="Views\Shared\_LayoutSimple.cshtml" />
+    <Content Include="Views\Treasury\ViewService.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703201752383_Initial_Migration.resx">
+      <DependentUpon>201703201752383_Initial_Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703212035308_Update_to_BaseContract_class.resx">
+      <DependentUpon>201703212035308_Update_to_BaseContract_class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703212045213_Update_to_municipalentities.resx">
+      <DependentUpon>201703212045213_Update_to_municipalentities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703212119188_droped_ServiceContractViewModels.resx">
+      <DependentUpon>201703212119188_droped_ServiceContractViewModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703222225383_fixed_contracttype_foreignkey.resx">
+      <DependentUpon>201703222225383_fixed_contracttype_foreignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703230012129_fix_added_status_field.resx">
+      <DependentUpon>201703230012129_fix_added_status_field.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271007529_Added_ExecutionProject_table.resx">
+      <DependentUpon>201703271007529_Added_ExecutionProject_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271213149_Fix_budget_tables.resx">
+      <DependentUpon>201703271213149_Fix_budget_tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291042360_added_invoice_tables.resx">
+      <DependentUpon>201703291042360_added_invoice_tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703291334504_fixes_to_invoice_tables.resx">
+      <DependentUpon>201703291334504_fixes_to_invoice_tables.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2571</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2571/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

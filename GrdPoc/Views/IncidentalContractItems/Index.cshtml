@@ -1,0 +1,96 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.IncidentalContractItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@Html.Partial("../Shared/_ContractsTabsView")
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContract.ContractTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerBudget.BudgetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCodeExpense.ProductCodeNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCodeIncome.ProductCodeNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContractItemDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContractItemValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContractItemQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IncidentalContractItemVat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductIncomeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductExpenseCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetCodeId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContract.ContractTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerBudget.BudgetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCodeExpense.ProductCodeNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCodeIncome.ProductCodeNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContractItemDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContractItemValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContractItemQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncidentalContractItemVat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductIncomeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductExpenseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetCodeId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IncidentalContractItemId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IncidentalContractItemId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IncidentalContractItemId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,131 @@
+﻿@model GrdPoc.Models.Entities.Invoice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Invoice Details</h2>
+
+
+<p>
+    @Html.ActionLink("Back to List", "List", null, new { @class = "btn btn-default" })
+    <a href='/Project/ViewService/@ViewBag.IncidentalContracId' class='btn btn-info ls-modal'>View Corresponding Contract</a>
+
+</p>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="ibox-content p-xl">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5>From:</h5>
+                        <address>
+                            <strong>@Html.DisplayFor(model => model.InvoiceIssuerName)</strong><br>
+                            @Html.DisplayFor(model => model.InvoiceIssuerAddress)<br>
+                            <abbr>KVK:</abbr> @Html.DisplayFor(model => model.InvoiceIssuerKvk)<br>
+                            <abbr>BTW:</abbr> @Html.DisplayFor(model => model.InvoiceIssuerBtw)<br>
+                            <abbr>IBAN:</abbr> @Html.DisplayFor(model => model.InvoiceIssuerIban)
+                        </address>
+                    </div>
+
+                    <div class="col-sm-6 text-right">
+                        <h4>Invoice No.</h4>
+                        <h4 class="text-navy">@Html.Raw(Model.InvoiceNumber)</h4>
+                        <span>To:</span>
+                        <address>
+                            <strong>@Html.DisplayFor(model => model.InvoiceCustomerName).</strong><br>
+                            @Html.DisplayFor(model => model.InvoiceCustomeAddress)<br>
+                            <abbr>KVK:</abbr>@Html.DisplayFor(model => model.InvoiceCustomeKvk)<br>
+                            <abbr>BTW:</abbr>@Html.DisplayFor(model => model.InvoiceCustomeBtw)
+                        </address>
+                        <p>
+                            <span><strong>Invoice Date:</strong> @Html.DisplayFor(model => model.InvoiceDate)</span><br />
+                            <span><strong>Due Date:</strong> @Html.DisplayFor(model => model.InvoiceDueDate)</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="table-responsive m-t">
+                    <table class="table invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Item List</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Tax</th>
+                                <th>Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model.InvoiceItems)
+                        {
+                            <tr>
+                                <td>
+                                    <div><strong>@Html.DisplayFor(modelItem => item.Description)</strong></div>
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                                <td>€ @Html.DisplayFor(modelItem => item.UnitPrice)</td>
+                                <td>@Html.DisplayFor(modelItem => item.VatPercent)%</td>
+                                <td>€ @Html.DisplayFor(modelItem => item.TotalPrice)</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div><!-- /table-responsive -->
+
+                <table class="table invoice-total">
+                    <tbody>
+                        <tr>
+                            <td><strong>Sub Total :</strong></td>
+                            <td>€ @Html.DisplayFor(model => model.InvoiceValue)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TAX :</strong></td>
+                            <td>€ @Html.DisplayFor(model => model.InvoiceVatTotal)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TOTAL :</strong></td>
+                            <td>€ @Html.DisplayFor(model => model.InvoiceValueTotal)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="well m-t">
+                    <strong>Comments</strong>
+                    @Html.DisplayFor(model => model.InvoiceDescription)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Contract</h4>
+            </div>
+            <div class="modal-body">
+                <p>Loading...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $('.datepicker').datepicker();
+
+        $('.ls-modal').on('click', function (e) {
+            e.preventDefault();
+            $('#myModal').modal('show').find('.modal-body').load($(this).attr('href'));
+        });
+
+    </script>
+}

@@ -1,0 +1,57 @@
+﻿@model GrdPoc.Models.ViewModels.ProjectLeaderDashboardViewModel
+
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="jumbotron">
+    <h1>Dashboard</h1>
+</div>
+
+<div class="row">
+    @foreach (var item in Model.ProjectsList)
+    {
+        <div class="col-sm-4 text-center ">
+            <div class="col-sm-12 label">
+                <div class="col-sm-6">
+                    <small>
+                        @Html.Raw(item.ExecutionProjectTitle)
+                    </small>
+                    <h1 class="m-b-xs">
+                        @Html.Raw(item.ExecutionProjectStatus)
+                    </h1>
+                    <div class="row">
+                        <div>
+                            <p>Duration (days) : @Html.Raw(item.ExecutionProjectDuration)
+                            <p>
+                                Timeframe Start	: @Html.Raw(item.ExecutionProjectTimeframeStart)
+                            </p>
+                            <p>
+                                Timeframe End : @Html.Raw(item.ExecutionProjectTimeframeEnd)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-xs-12">
+                        <small class="stats-label">Project Controller (Project Leader)</small>
+                        <h4>@Html.Raw(item.ExecutionProjectController.UserName)</h4>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <small class="stats-label">Project Provider <br />(Team Lead or Budget Owner)</small>
+                        <h4>@Html.Raw(item.ExecutionProjectProvider.UserName)</h4>
+                    </div>
+                    <div class="col-xs-12">
+                        <small class="stats-label">Project Resource</small>
+                        <h4>@Html.Raw(item.ExecutionProjectResource?.UserName)</h4>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    @Html.ActionLink("Go to Project", "Edit", "Project", new { id = item.ExecutionProjectId }, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,138 @@
+﻿@model GrdPoc.Models.Entities.ExecutionProject
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ExecutionProject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectController.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectController.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectProvider.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectProvider.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectResource.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectResource.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncidentalContract.ContractTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncidentalContract.ContractTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectDuration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectTimeframeStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectTimeframeStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectTimeframeEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectTimeframeEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectSchedulledStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectSchedulledStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectSchedulledEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectSchedulledEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectActualStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectActualStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectActualEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectActualEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectDeliveranceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectDeliveranceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExecutionProjectDeliveranceConfirmation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExecutionProjectDeliveranceConfirmation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ExecutionProjectId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

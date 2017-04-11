@@ -1,0 +1,66 @@
+﻿@model IEnumerable<GrdPoc.Models.Entities.MunicipalEntity>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@Html.Partial("../Shared/_AccountsTabsView")
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MunicipalEntityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MunicipalEntityAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MunicipalEntityKvk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MunicipalEntityBtw)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MunicipalEntityIban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MunicipalEntityType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MunicipalEntityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MunicipalEntityAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MunicipalEntityKvk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MunicipalEntityBtw)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MunicipalEntityIban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MunicipalEntityType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MunicipalEntityId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MunicipalEntityId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MunicipalEntityId })
+        </td>
+    </tr>
+}
+
+</table>

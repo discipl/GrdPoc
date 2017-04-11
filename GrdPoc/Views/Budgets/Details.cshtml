@@ -1,0 +1,61 @@
+﻿@model GrdPoc.Models.Entities.Budget
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+@Html.Partial("../Shared/_BudgetsTabsView")
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>Budget</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetOwner.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetOwner.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetIdCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetIdCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetInitialBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetInitialBalance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BudgetBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BudgetBalance)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BudgetId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
